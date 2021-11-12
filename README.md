@@ -308,6 +308,13 @@ kubectl autoscale deployment hello-world-rest-api --max=10 --cpu-percent=70
 kubectl edit deployment hello-world-rest-api #minReadySeconds: 15
 kubectl set image deployment hello-world-rest-api hello-world-rest-api=in28min/hello-world-rest-api:0.0.2.RELEASE
 
+--Resize Cluster --> Also save money when not need for learning 
+gcloud container clusters resize --zone us-central1-a poc-springboot-ws-cluster --num-nodes=0
+--Increase when use again
+gcloud container clusters resize --zone us-central1-a poc-springboot-ws-cluster --num-nodes=3
+
+
+
 gcloud container clusters get-credentials in28minutes-cluster --zone us-central1-a --project solid-course-258105
 kubectl create deployment hello-world-rest-api --image=in28min/hello-world-rest-api:0.0.1.RELEASE
 kubectl expose deployment hello-world-rest-api --type=LoadBalancer --port=8080
